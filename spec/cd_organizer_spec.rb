@@ -28,10 +28,10 @@ describe(Cd) do
     end
   end
 
-  describe(".album_search") do
-    it("will return album when artist is searched") do
+  describe(".search") do
+    it("will return entire object when artist or album is searched") do
       test_cd = Cd.new({:artist => "Whitney Houston", :album => "Shockathon"}).save()
-      expect(Cd.album_search("Whitney Houston")).to(eq(test_cd))
+      expect(Cd.search("Shockathon")).to(eq(test_cd))
     end
   end
 end

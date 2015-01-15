@@ -22,10 +22,14 @@ class Cd
     @@cd = []
   end
 
-  define_singleton_method(:album_search) do |artist|
+  define_singleton_method(:search) do |music|
     @@cd.each() do |object|
-       if object.artist() == artist
+       if object.artist() == music
           return object
+        elsif object.album() == music
+          return object
+        else
+          return "You still need to buy that one."
        end
     end
   end
