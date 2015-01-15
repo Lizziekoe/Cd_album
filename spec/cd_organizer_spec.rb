@@ -22,10 +22,16 @@ describe(Cd) do
 
   describe(".clear") do
     it("will empty the class variable") do
-      test_cd = Cd.new({:artist => "Windus", :album => "Patterson"})
-      test_cd.save().clear()
+      test_cd = Cd.new({:artist => "Windus", :album => "Patterson"}).save()
+      Cd.clear
       expect(Cd.all()).to(eq([]))
     end
   end
 
+  describe(".album_search") do
+    it("will return album when artist is searched") do
+      test_cd = Cd.new({:artist => "Whitney Houston", :album => "Shockathon"}).save()
+      expect(Cd.album_search("Whitney Houston")).to(eq(test_cd))
+    end
+  end
 end
